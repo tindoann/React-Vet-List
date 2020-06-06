@@ -18,6 +18,7 @@ class App extends React.Component {
       lastIndex: 0,
     };
 
+    // binding the method to the class constructor
     this.deleteAppointment = this.deleteAppointment.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
     this.addAppointment = this.addAppointment.bind(this);
@@ -26,6 +27,7 @@ class App extends React.Component {
     this.updateInfo = this.updateInfo.bind(this);
   }
 
+  // will mount at the start of dom
   componentDidMount() {
     fetch("./data.json")
       .then((response) => response.json())
@@ -57,6 +59,7 @@ class App extends React.Component {
     tempAlpts[aptIndex][name] = value;
     this.setState({ myappointments: tempAlpts });
   }
+  
   changeOrder(order, dir) {
     this.setState({
       orderBy: order,
@@ -79,6 +82,7 @@ class App extends React.Component {
       queryText: manual,
     });
   }
+
   toggleForm() {
     this.setState({ formDisplay: !this.state.formDisplay });
   }
